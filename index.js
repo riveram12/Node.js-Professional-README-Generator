@@ -82,23 +82,18 @@ const questions = inquirer
   .then((response) => {
     data = `
      
-
-    # Project Name
-
-    ${response.name}
-
-    \`\`\`  
+    # Project Name - ${response.name}
+    
     ## Webpage Link 
 
     ${response.webpage}
     
-    \`\`\`
     ## Table of contents
 
     * [General info](#general-info)
     * [Screenshots](#screenshots)
     * [Technologies](#technologies)
-    * [Acceptance Criteria](#acceptance*criteria)
+    * [Acceptance Criteria](#acceptance-criteria)
     * [Features](#features)
     * [Status](#status)
     * [Sources](#sources)
@@ -108,7 +103,6 @@ const questions = inquirer
 
     ${response.info}
 
-    \`\`\`
     ## Screenshots
 
     ![Screen Shot 1](assets/images/screenshot1.png)
@@ -152,13 +146,13 @@ const questions = inquirer
 
     // TODO: Create a function to write README file
 
-    fs.appendFile("GeneratedReadMe.md", data, (err) =>
-      err ? console.error(err) : console.log("Success ReadMe.md Created!")
+    fs.writeFile("ReadMe.md", data, (err) =>
+      err ? console.error(err) : console.log("Successful - ReadMe.md Created!")
     );
   });
 
 // TODO: Create a function to initialize app
-function init() {}
+//function init() {}
 
 // Function call to initialize app
-init();
+//init();
