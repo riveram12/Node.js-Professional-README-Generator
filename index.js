@@ -16,9 +16,10 @@
 
 const inquirer = require("inquirer");
 const fs = require("fs");
+//const utilities = require("./utilities");
 //const questions = [];
 
-const questions = inquirer
+inquirer
   .prompt([
     {
       type: "input",
@@ -73,74 +74,69 @@ const questions = inquirer
       message: "Your E-mail:",
       name: "email",
     },
-    {
-      type: "input",
-      message: "Your E-mail:",
-      name: "sources",
-    },
   ])
   .then((response) => {
     data = `
      
-    # Project Name - ${response.name}
-    
-    ## Webpage Link 
+# Project Name - ${response.name}
 
-    ${response.webpage}
-    
-    ## Table of contents
+## Webpage Link 
 
-    * [General info](#general-info)
-    * [Screenshots](#screenshots)
-    * [Technologies](#technologies)
-    * [Acceptance Criteria](#acceptance-criteria)
-    * [Features](#features)
-    * [Status](#status)
-    * [Sources](#sources)
-    * [Contact](#contact)
+${response.webpage}
 
-    ## General info
+## Table of contents
 
-    ${response.info}
+* [General info](#general-info)
+* [Screenshots](#screenshots)
+* [Technologies](#technologies)
+* [Acceptance Criteria](#acceptance-criteria)
+* [Features](#features)
+* [Status](#status)
+* [Sources](#sources)
+* [Contact](#contact)
 
-    ## Screenshots
+## General info
 
-    ![Screen Shot 1](assets/images/screenshot1.png)
-    ![Screen Shot 2](assets/images/screenshot2.png)
-    ![Screen Shot 3](assets/images/screenshot3.png)
+${response.info}
 
-    ## Technologies
+## Screenshots
 
-    ${response.technologies}
+![Screen Shot 1](assets/images/screenshot1.png)
+![Screen Shot 2](assets/images/screenshot2.png)
+![Screen Shot 3](assets/images/screenshot3.png)
 
-    ## Acceptance Criteria
-    
-    ${response.criteria}
-    
+## Technologies
 
-    ## Features
+${response.technologies}
 
-    List of features ready and TODOs for future development
+## Acceptance Criteria
 
-    ${response.features}
+${response.criteria}
 
-    ## To-do list
 
-    ${response.todo}
+## Features
 
-    ## Status
+List of features ready and TODOs for future development
 
-    Project is: ${response.status} 
+${response.features}
 
-    ## Sources
+## To-do list
 
-    ${response.sources}
-    
-    ## Contact
+${response.todo}
 
-    Created by Mariah Rivera
-    * [GitHub](https://github.com/${response.github})
-    * [E-mail](mailto:${response.email})
+## Status
+
+Project is: ${response.status} 
+
+## Sources
+
+${response.sources}
+
+## Contact
+
+Created by Mariah Rivera
+* [GitHub](https://github.com/${response.github})
+* [E-mail](mailto:${response.email})
 
       `;
 
